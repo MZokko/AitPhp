@@ -1,25 +1,28 @@
 <doctype <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.css" />
-        <script src="node_modules/jquery/dist/jquery.js"></script>
-        <script src="node_modules/boostrap/dist/js/bootstrap.js"></script>
-        <script src="node_modules/propper.js/dist/umd/propper.js"></script>
-    </head>
+    {% include 'includes/head.twig' %}
     
     <body>
-        <div class="container">
+        {% include 'includes/navigation.twig'%}
+        <div class="container-fluid">
             <div class = "row">
-               
-               {% for product in products%}
-                   <div class="col-md-3">
-                       <h3>{{product.name}}</h3>
-                       <img class = "img-fluid" src="images/products/products/{{product.image_file_name}}">
-                       <h5>{{ product.price }}</h5>
-                       <p>{{product.description}}</p>
+               <div class="col-md-2">
+                   {#category#}
+                   {%include 'includes/categories.twig'%}
+               </div>
+               <div class="col-md-10">
+                   <div class="row">
+                        {% for product in products%}
+                           <div class="col-md-3">
+                               <h3>{{product.name}}</h3>
+                               <img class = "img-fluid" src="images/products/products/{{product.image_file_name}}">
+                               <h5>{{ product.price }}</h5>
+                               <a href="detail.php?id={{product.product_id}}">Detail</a>
+                           </div>
+                       {%endfor%}
                    </div>
-               {%endfor%}
+               </div>
+               
                 
             </div>
         </div>
