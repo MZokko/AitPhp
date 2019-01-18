@@ -39,9 +39,9 @@ class Validator {
             if(strlen($password)<6){
                 array_push($errors , 'minimum 6 characters');
             }
-            if(ctype_alnum($password)){
-                array_push($errors , 'need to contain a symbol');
-            }
+            // if(ctype_alnum($password)){
+            //     array_push($errors , 'need to contain a symbol');
+            // }
             
             //return the result of the password validation
             $result = array();
